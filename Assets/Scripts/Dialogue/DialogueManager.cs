@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text option1Text;
     public TMP_Text option2Text;
 
-    bool dialogeActive = false;
+    public bool dialogeActive = false;
 
     void Start()
     {

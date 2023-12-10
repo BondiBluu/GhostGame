@@ -10,25 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f7f1cfec34d67149be01919adad1dac, type: 3}
-  m_Name: Table
+  m_Name: Blue Haired Girl
   m_EditorClassIdentifier: 
   dialogueLines:
-  - An unassuming table.
-  - Looks just like the chair.
+  - Currently I'm an NPC
+  - But the first one that was made!
+  - Isn't that exciting?
+  - I have to make an impression...
+  - Though I suppose I already have...
   nameLines:
-  - Assuming Table
-  - Offended Table
-  option1Lines: '*Pat table*'
-  option2Lines: '*Leave*'
+  - NPC Girl
+  - NPC Girl
+  - NPC Girl
+  - NPC Girl
+  - NPC Girl
+  option1Lines: 
+  option2Lines: 
   option1Dialogue:
-  - The table has been pat
-  - But is that all?
+  - 
+  - 
   option2Dialogue:
-  - I'll leave the table alone.
+  - 
+  - 
   option1Name:
-  - You
-  - You
+  - 
+  - 
   option2Name:
-  - You
-  hasOptions: 1
-  optionIndex: 1
+  - 
+  - 
+  hasOptions: 0
+  optionIndex: 0

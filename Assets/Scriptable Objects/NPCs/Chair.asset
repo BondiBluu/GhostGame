@@ -20,5 +20,15 @@ MonoBehaviour:
   - Unassuming Chair
   option1Lines: 
   option2Lines: 
-  option1Dialogue: []
-  option2Dialogue: []
+  option1Dialogue:
+  - 
+  - 
+  option2Dialogue:
+  - 
+  - 
+  option1Name:
+  - 
+  - 
+  option2Name: []
+  hasOptions: 0
+  optionIndex: 0

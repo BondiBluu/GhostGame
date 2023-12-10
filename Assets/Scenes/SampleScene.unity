@@ -244,7 +244,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 339253650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 853307106}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: ClickOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &397801102
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.035, y: 0}
   m_AnchorMax: {x: 0.9677422, y: 0.55850166}
-  m_AnchoredPosition: {x: -3.8399963, y: 5.568573}
+  m_AnchoredPosition: {x: -3.8400269, y: 5.568573}
   m_SizeDelta: {x: 14.65, y: -16.779999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &397801104
@@ -454,6 +466,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &853307104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 853307105}
+  - component: {fileID: 853307106}
+  m_Layer: 0
+  m_Name: ButtonController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &853307105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853307104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853307106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853307104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3663b0b315a20b4481c0ff734a1fc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &867162774
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +636,7 @@ MonoBehaviour:
   option2Button: {fileID: 1928454416}
   option1Text: {fileID: 1573935553}
   option2Text: {fileID: 1229996010}
+  dialogeActive: 0
 --- !u!114 &867162780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,67 +680,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
---- !u!1001 &875039748
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5399258602541810237, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_Name
-      value: NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714428458040613384, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c6e5cfef803cdcf4a8e14c5240b82851, type: 3}
 --- !u!1 &904685132
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.033, y: 0.209}
   m_AnchorMax: {x: 0.9285041, y: 0.76968104}
-  m_AnchoredPosition: {x: -0.8499985, y: 0.08500004}
+  m_AnchoredPosition: {x: -0.8499985, y: 0.08500099}
   m_SizeDelta: {x: -2.9700003, y: 1.8299999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &993133161
@@ -1531,7 +1527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.035, y: 0.58955276}
   m_AnchorMax: {x: 0.24724533, y: 0.7986582}
-  m_AnchoredPosition: {x: -4.5199585, y: 0.90999985}
+  m_AnchoredPosition: {x: -4.5199585, y: 0.91000366}
   m_SizeDelta: {x: 12.369995, y: 0.7400017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1658465697
@@ -1634,7 +1630,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1928454417}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 853307106}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: ClickOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1928454417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1694,6 +1702,67 @@ RectTransform:
   m_AnchoredPosition: {x: 1.9999695, y: 1.5399971}
   m_SizeDelta: {x: 0.6300049, y: -0.43999863}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &4596484550642928940
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338814934094158244, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549639568978378072, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
+      propertyPath: m_Name
+      value: NPCGirl
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a80943ec268fda242a4d8a631e5ab6f3, type: 3}
 --- !u!1001 &5248297624739360752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1746,10 +1815,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2805470104491967042, guid: e340f164f3e65294eb5d8d2671cc46f8, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 1abea6f52e08ed14fbc8542aee7bbdb3, type: 2}
     - target: {fileID: 3299748697632243467, guid: e340f164f3e65294eb5d8d2671cc46f8, type: 3}
       propertyPath: m_Name
       value: TableNPC

@@ -15,4 +15,8 @@ public class NPCData : ScriptableObject
     public string option2Lines;
     public string[] option1Dialogue;
     public string[] option2Dialogue;
+    public string[] option1Name;
+    public string[] option2Name;
+    public bool hasOptions;
+    public int optionIndex;
 }
