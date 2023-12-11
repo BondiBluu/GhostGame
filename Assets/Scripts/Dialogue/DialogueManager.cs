@@ -14,10 +14,10 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text nameText;
 
     [Header("Dialogue Buttons")]
-    public Button option1Button;
-    public Button option2Button;
-    public TMP_Text option1Text;
-    public TMP_Text option2Text;
+    public GameObject option1Button;
+    public GameObject option2Button;
+    public Transform option1Transform;
+    public Transform option2Transform;
 
     public bool dialogeActive = false;
 
@@ -25,6 +25,7 @@ public class DialogueManager : MonoBehaviour
     {
         CloseDialogue();
     }
+    
     public void OpenDialogue(){
         dialogueBox.SetActive(true);
         nameBox.SetActive(true);

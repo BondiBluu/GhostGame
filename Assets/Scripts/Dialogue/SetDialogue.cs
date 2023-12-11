@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -11,7 +12,11 @@ public class SetDialogue : MonoBehaviour
     int currentLine = 0;
     [SerializeField] NPCData data;
     bool optionChosen = false;
-    
+    NPCDraft draft;
+
+    GameObject buttonOption1Object;
+    GameObject buttonOption2Object;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +79,11 @@ public class SetDialogue : MonoBehaviour
 
         if(data.hasOptions && !optionChosen && currentLine == data.optionIndex)
         {
-           ShowOptions();
+           //ShowOptions();
+           GenerateOptions();
+        } else if(currentLine != data.optionIndex)
+        {
+            ClearOptions();
         }
     }
 
@@ -85,12 +94,54 @@ public class SetDialogue : MonoBehaviour
         
     }
 
-    void ShowOptions()
+    // void ShowOptions()
+    // {
+    //     manager.option1Button.gameObject.SetActive(true);
+    //     manager.option2Button.gameObject.SetActive(true);
+    //     // manager.option1Text.text = data.option1Lines;
+    //     // manager.option2Text.text = data.option2Lines;
+    // }
+
+    public void GenerateOptions()
     {
-        manager.option1Button.gameObject.SetActive(true);
-        manager.option2Button.gameObject.SetActive(true);
-        manager.option1Text.text = data.option1Lines;
-        manager.option2Text.text = data.option2Lines;
+        buttonOption1Object = Instantiate(manager.option1Button, manager.option1Transform);
+        buttonOption2Object = Instantiate(manager.option2Button, manager.option2Transform);
+
+        //avoiding ArgumentNullException
+        if (buttonOption1Object != null)
+        {
+            Debug.Log("button 1 object is not null");
+            buttonOption1Object.SetActive(true); // Ensure the button is active
+            buttonOption1Object.GetComponentInChildren<TMP_Text>().text = data.option1Lines;
+
+            //adding onClick event
+            Button buttonComponent = buttonOption1Object.GetComponent<Button>();
+            buttonComponent.onClick.AddListener(() => DialogueOption(0));
+        }
+
+        if (buttonOption2Object != null)
+        {
+            buttonOption2Object.SetActive(true); // Ensure the button is active
+            buttonOption2Object.GetComponentInChildren<TMP_Text>().text = data.option2Lines;
+
+            //adding onClick event
+            Button buttonComponent = buttonOption2Object.GetComponent<Button>();
+            buttonComponent.onClick.AddListener(() => DialogueOption(1));
+        }
+    }
+
+    void ClearOptions()
+    {
+        if(buttonOption1Object != null)
+        {
+            Debug.Log("button 1 object is not null");
+            buttonOption1Object.SetActive(false); // Ensure the button is active
+        }
+
+        if (buttonOption2Object != null)
+        {
+            buttonOption2Object.SetActive(false); // Ensure the button is active
+        }
     }
 
 
@@ -102,24 +153,25 @@ public class SetDialogue : MonoBehaviour
 
     public void DialogueOption(int optionValue)
     {
+
         Debug.Log("Option Chosen: " + optionValue);
-        optionChosen = true;
-        currentLine = 0;
-        manager.option1Button.gameObject.SetActive(false);
-        manager.option2Button.gameObject.SetActive(false);
+        // optionChosen = true;
+        // currentLine = 0;
+        // manager.option1Button.gameObject.SetActive(false);
+        // manager.option2Button.gameObject.SetActive(false);
         
-        if (optionValue == 0)
-        {
-            manager.dialogueText.text = data.option1Dialogue[currentLine];
-            manager.nameText.text = data.option1Name[currentLine];
-            //ShowPickedDialogueOptions(data.option1Dialogue[currentLine], data.option1Name[currentLine]);
-        }
-        else if(optionValue == 1)
-        {
-            manager.dialogueText.text = data.option2Dialogue[currentLine];
-            manager.nameText.text = data.option2Name[currentLine];
-            // ShowPickedDialogueOptions(data.option2Dialogue[currentLine], data.option2Name[currentLine]);
-        }
+        // if (optionValue == 0)
+        // {
+        //     manager.dialogueText.text = data.option1Dialogue[currentLine];
+        //     manager.nameText.text = data.option1Name[currentLine];
+        //     //ShowPickedDialogueOptions(data.option1Dialogue[currentLine], data.option1Name[currentLine]);
+        // }
+        // else if(optionValue == 1)
+        // {
+        //     manager.dialogueText.text = data.option2Dialogue[currentLine];
+        //     manager.nameText.text = data.option2Name[currentLine];
+        //     // ShowPickedDialogueOptions(data.option2Dialogue[currentLine], data.option2Name[currentLine]);
+        // }
     }
 
     void ShowPickedDialogueOptions(string dialogue, string name)
