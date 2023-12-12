@@ -13,7 +13,6 @@ public class SetDialogue : MonoBehaviour
     int currentLine = 0;
     [SerializeField] NPCData data;
     bool optionChosen = false;
-    NPCDraft draft;
 
     GameObject buttonOption1Object;
     GameObject buttonOption2Object;
@@ -44,7 +43,7 @@ public class SetDialogue : MonoBehaviour
         {
             Debug.Log("Player has left space");
             inRange = false;
-            EndDialogue();
+            EndDialogueOptions();
         }
     }
 
@@ -84,7 +83,7 @@ public class SetDialogue : MonoBehaviour
         }
         else
         {
-            EndDialogue();
+            EndDialogueOptions();
             ResetOptions();
         }
 
@@ -141,8 +140,7 @@ public class SetDialogue : MonoBehaviour
         }
     }
 
-
-    void EndDialogue()
+    void EndDialogueOptions()
     {
         manager.CloseDialogue();
         currentLine = 0;
