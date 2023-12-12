@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,11 +17,16 @@ public class SetDialogue : MonoBehaviour
 
     GameObject buttonOption1Object;
     GameObject buttonOption2Object;
+    int optionPicked;
 
     // Start is called before the first frame update
     void Start()
     {
         manager = FindObjectOfType<DialogueManager>();
+        //instantiating option buttons
+        buttonOption1Object = Instantiate(manager.option1Button, manager.option1Transform);
+        buttonOption2Object = Instantiate(manager.option2Button, manager.option2Transform);
+        ClearOptions();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -68,20 +74,24 @@ public class SetDialogue : MonoBehaviour
     {
         currentLine++;
 
-        if(currentLine < data.dialogueLines.Length)
+        if(currentLine < data.dialogueLines.Length && !optionChosen)
         {
             ShowDialogue();
+        }
+        else if (currentLine < data.dialogueLines.Length && optionChosen)
+        {
+            ShowOptionDialogue(optionPicked);
         }
         else
         {
             EndDialogue();
+            ResetOptions();
         }
 
         if(data.hasOptions && !optionChosen && currentLine == data.optionIndex)
         {
-           //ShowOptions();
            GenerateOptions();
-        } else if(currentLine != data.optionIndex)
+        } else
         {
             ClearOptions();
         }
@@ -91,22 +101,10 @@ public class SetDialogue : MonoBehaviour
     {
             manager.dialogueText.text = data.dialogueLines[currentLine];
             manager.nameText.text = data.nameLines[currentLine];
-        
     }
-
-    // void ShowOptions()
-    // {
-    //     manager.option1Button.gameObject.SetActive(true);
-    //     manager.option2Button.gameObject.SetActive(true);
-    //     // manager.option1Text.text = data.option1Lines;
-    //     // manager.option2Text.text = data.option2Lines;
-    // }
 
     public void GenerateOptions()
     {
-        buttonOption1Object = Instantiate(manager.option1Button, manager.option1Transform);
-        buttonOption2Object = Instantiate(manager.option2Button, manager.option2Transform);
-
         //avoiding ArgumentNullException
         if (buttonOption1Object != null)
         {
@@ -116,7 +114,7 @@ public class SetDialogue : MonoBehaviour
 
             //adding onClick event
             Button buttonComponent = buttonOption1Object.GetComponent<Button>();
-            buttonComponent.onClick.AddListener(() => DialogueOption(0));
+            buttonComponent.onClick.AddListener(() => StartDialogueOptions(0));
         }
 
         if (buttonOption2Object != null)
@@ -126,7 +124,7 @@ public class SetDialogue : MonoBehaviour
 
             //adding onClick event
             Button buttonComponent = buttonOption2Object.GetComponent<Button>();
-            buttonComponent.onClick.AddListener(() => DialogueOption(1));
+            buttonComponent.onClick.AddListener(() => StartDialogueOptions(1));
         }
     }
 
@@ -134,13 +132,12 @@ public class SetDialogue : MonoBehaviour
     {
         if(buttonOption1Object != null)
         {
-            Debug.Log("button 1 object is not null");
-            buttonOption1Object.SetActive(false); // Ensure the button is active
+            buttonOption1Object.SetActive(false);
         }
 
         if (buttonOption2Object != null)
         {
-            buttonOption2Object.SetActive(false); // Ensure the button is active
+            buttonOption2Object.SetActive(false);
         }
     }
 
@@ -151,35 +148,43 @@ public class SetDialogue : MonoBehaviour
         currentLine = 0;
     }
 
-    public void DialogueOption(int optionValue)
+    public void StartDialogueOptions(int optionValue)
     {
 
         Debug.Log("Option Chosen: " + optionValue);
-        // optionChosen = true;
-        // currentLine = 0;
-        // manager.option1Button.gameObject.SetActive(false);
-        // manager.option2Button.gameObject.SetActive(false);
+        ClearOptions();
+        optionChosen = true;
+        optionPicked = optionValue;
+        Debug.Log("Option picked: " + optionPicked);
+        currentLine = 0;
         
-        // if (optionValue == 0)
-        // {
-        //     manager.dialogueText.text = data.option1Dialogue[currentLine];
-        //     manager.nameText.text = data.option1Name[currentLine];
-        //     //ShowPickedDialogueOptions(data.option1Dialogue[currentLine], data.option1Name[currentLine]);
-        // }
-        // else if(optionValue == 1)
-        // {
-        //     manager.dialogueText.text = data.option2Dialogue[currentLine];
-        //     manager.nameText.text = data.option2Name[currentLine];
-        //     // ShowPickedDialogueOptions(data.option2Dialogue[currentLine], data.option2Name[currentLine]);
-        // }
+        if (optionValue == 0)
+        {
+            ShowOptionDialogue(optionValue);
+        }
+        else if(optionValue == 1)
+        {
+            ShowOptionDialogue(optionValue);
+        }
     }
 
-    void ShowPickedDialogueOptions(string dialogue, string name)
+    void ShowOptionDialogue(int optionValue)
     {
-        Debug.Log("showing picked dialogue options");
-        //everthing works until here. Please fix. Index is set outside of bounds of array
-        manager.dialogueText.text = dialogue;
-        manager.nameText.text = name;
+        if(optionValue == 0)
+        {
+            manager.dialogueText.text = data.option1Dialogue[currentLine];
+            manager.nameText.text = data.option1Name[currentLine];
+        }
+        else if(optionValue == 1)
+        {
+            manager.dialogueText.text = data.option2Dialogue[currentLine];
+            manager.nameText.text = data.option2Name[currentLine];
+        }
     }
-    
+
+    void ResetOptions()
+    {
+        optionChosen = false;
+        optionPicked = 0;
+    }
 }
