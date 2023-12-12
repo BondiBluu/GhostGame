@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +14,8 @@ public class SetDialogue : MonoBehaviour
     GameObject buttonOption1Object;
     GameObject buttonOption2Object;
     int optionPicked;
+
+    PlayerController player;
 
     // Start is called before the first frame update
     void Start()
