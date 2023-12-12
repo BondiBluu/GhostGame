@@ -25,10 +25,12 @@ MonoBehaviour:
   - But is that all?
   option2Dialogue:
   - I'll leave the table alone.
+  - Now what to do?
   option1Name:
   - You
   - You
   option2Name:
+  - You
   - You
   hasOptions: 1
   optionIndex: 1
