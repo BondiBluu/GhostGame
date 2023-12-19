@@ -62,6 +62,8 @@
     <Compile Include="Assets\Scripts\Dialogue\NPCDraft.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\ButtonController.cs" />
+    <Compile Include="Assets\Scripts\Inven\InvenObject.cs" />
+    <Compile Include="Assets\Scripts\Inven\ItemObject.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Dialogue\NPCData.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
