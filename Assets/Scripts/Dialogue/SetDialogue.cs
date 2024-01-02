@@ -107,7 +107,6 @@ public class SetDialogue : MonoBehaviour
         //avoiding ArgumentNullException
         if (buttonOption1Object != null)
         {
-            Debug.Log("button 1 object is not null");
             buttonOption1Object.SetActive(true); // Ensure the button is active
             buttonOption1Object.GetComponentInChildren<TMP_Text>().text = data.option1Lines;
 
