@@ -28,6 +28,13 @@ public class SetDialogue : MonoBehaviour
         ClearOptions();
     }
 
+    public IEnumerator ItemCollected(string itemName){
+        manager.ItemTellerOn();
+        manager.itemText.text = $"You've aqcuired {itemName}.";
+        yield return new WaitForSeconds(2f);
+        manager.ItemTellerOff();
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))

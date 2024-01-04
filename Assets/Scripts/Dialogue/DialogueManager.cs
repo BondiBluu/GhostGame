@@ -19,11 +19,24 @@ public class DialogueManager : MonoBehaviour
     public Transform option1Transform;
     public Transform option2Transform;
 
+    [Header("Items")]
+    public GameObject itemBox;
+    public TMP_Text itemText;
+
     public bool dialogeActive = false;
 
     void Start()
     {
         CloseDialogue();
+        ItemTellerOff();
+    }
+
+    public void ItemTellerOff(){
+        itemBox.SetActive(false);
+    }
+
+    public void ItemTellerOn(){
+        itemBox.SetActive(true);
     }
     
     public void OpenDialogue(){
